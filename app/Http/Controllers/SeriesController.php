@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Serie;  // Não esquecer de acrescentar o Model que estou usando
+
 
 class SeriesController extends Controller
 {
@@ -31,6 +33,10 @@ class SeriesController extends Controller
     //Preciso usar Request para pegar os atributos que serão passados via post (como definido na routes web)
     public function store(Request $request){
         $nome = $request->name;
-        dd($nome);
+        //checando se dado está sendo recebido pelo request
+        // dd($nome); 
+        $serie = new Serie();
+        $serie->name = $nome;
+        dd($serie->save());
     }
 }
