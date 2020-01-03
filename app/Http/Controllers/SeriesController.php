@@ -45,7 +45,23 @@ class SeriesController extends Controller
         $serie->save(); */
 
         //Outra forma de salvar no banco, não precisa salvar um por um e já consegue usar dados (precisa adicionar campo no model):
-        $serie = Serie::create($request->all());
+        // $serie = Serie::create($request->all());
+
+        //Só queremos salvar no nome no banco de dados, não todas as outras informações do form:
+        $serie = Serie::create(['name' => $request->name]);
+
+        $seasonsNumber = $request->seasons_number;
+        for ($i=1; $i <= $seasonsNumber; $i++) { 
+            $season = $serie->seasons()->create(['number' => $i]);
+            
+            $episodesNumber = $request->episodes_number;
+
+            for ($j=1; $j <= $episodesNumber; $j++) { 
+            $season->episodes()->create(['number' => $j]);
+            }
+
+        }
+
 
         $request->session()
             //flash message serve para o laravel exibir apenas 1 x uma mensagem. antes estava usando get
