@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SeriesFormRequest;
 use Illuminate\Http\Request;
 use App\Serie;  // Não esquecer de acrescentar o Model que estou usando
 
@@ -32,8 +33,8 @@ class SeriesController extends Controller
 
     //Para salvar informações do formulário 
     //Preciso usar Request para pegar os atributos que serão passados via post (como definido na routes web)
-    public function store(Request $request){
-        
+    public function store(SeriesFormRequest $request){
+
         // Forma mais manual, não consegue usar dados já salvos:
         /*
         $nome = $request->name;
@@ -47,13 +48,14 @@ class SeriesController extends Controller
         $serie = Serie::create($request->all());
 
         $request->session()
-            //flash serve para o laravel exibir apenas 1 x uma mensagem. antes estava usando get
+            //flash message serve para o laravel exibir apenas 1 x uma mensagem. antes estava usando get
             ->flash(
                 'mensagem', 
                 "Série {$serie->id} criada com sucesso {$serie->name}"
             );
 
-        return redirect('/series');
+        // return redirect('/series');
+        return redirect()->route('list_series');
     }
 
     public function destroy(Request $request){

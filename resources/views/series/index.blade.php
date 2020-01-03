@@ -10,7 +10,7 @@
   </div>
 @endif
 
-<a href="/series/criar" class="btn btn-dark mb-3">Adicionar Série</a>
+<a href="{{ route('form_create_serie') }}" class="btn btn-dark mb-3">Adicionar Série</a>
 <ul class="list-group">
   @foreach ($series as $serie)
     <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -19,7 +19,7 @@
       <form action="/series/{{$serie->id}}" method="post" onsubmit="return confirm('Tem certeza que quer remover {{ addslashes($serie->name) }}?')">
         @csrf
         @method('DELETE')
-        <button class="btn btn-danger btn-sm"><i class="far fa-trash-alt"></i></button>
+        <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
       </form>
     </li>
   @endforeach
