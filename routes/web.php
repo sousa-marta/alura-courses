@@ -22,8 +22,12 @@ Route::get('/series/criar', 'SeriesController@create')->name('form_create_serie'
 Route::post('/series/criar', 'SeriesController@store');
 // Route::post('/series/remover/{id}','SeriesController@destroy');
 Route::delete('/series/{id}','SeriesController@destroy');
+Route::post('/series/{id}/editaNome', 'SeriesController@editaNome');
 
 Route::get('/series/{serieId}/temporadas','SeasonsController@index');
+
+Route::get('/temporadas/{temporada}/episodios','EpisodesController@index');
+
 
 //Resource Controllers
 //https://laravel.com/docs/master/controllers 

@@ -20,11 +20,11 @@ class SerieCreator
     // $serie = Serie::create($request->all());
 
     $serie = null;
-    
+
     DB::beginTransaction();
     //Só queremos salvar o nome no banco de dados, não todas as outras informações do form:
     $serie = Serie::create(['name' => $serieName]);
-      $this->createSeasons($serie, $seasonsNumber, $episodesNumber);
+    $this->createSeasons($serie, $seasonsNumber, $episodesNumber);
     DB::commit();
 
     return $serie;

@@ -12,14 +12,12 @@ class SerieRemover
     $serieName = null;
 
     //código só vai funcionar se tudo funcionar, se não não exclui nada
-   
     DB::beginTransaction();
     $serie = Serie::find($serieId);
     $serieName = $serie->name;
     $this->seasonRemover($serie);
-    DB::commit();
-
     $serie->delete();
+    DB::commit();
 
     return $serieName;
   }

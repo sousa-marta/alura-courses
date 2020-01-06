@@ -5,8 +5,13 @@
 @section('content')
   <ul class="list-group">
     @foreach($seasons as $season)
-      <li class="list-group-item">
-        Temporada {{$season->number}}
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <a href="/temporadas/{{ $season->id }}/episodios">
+          Temporada {{$season->number}}
+        </a>
+        <span class="badge badge-secondary">
+          0 / {{ $season->episodes->count() }}
+        </span>
       </li>
     @endforeach
   </ul>
