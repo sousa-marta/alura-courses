@@ -23,6 +23,7 @@ Route::post('/series/criar', 'SeriesController@store');
 // Route::post('/series/remover/{id}','SeriesController@destroy');
 Route::delete('/series/{id}','SeriesController@destroy');
 
+Route::get('/series/{serieId}/temporadas','SeasonsController@index');
 
 //Resource Controllers
 //https://laravel.com/docs/master/controllers 

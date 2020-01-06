@@ -6,7 +6,6 @@ use App\Http\Requests\SeriesFormRequest;
 use Illuminate\Http\Request;
 use App\Serie;  // Não esquecer de acrescentar o Model que estou usando
 
-
 class SeriesController extends Controller
 {
     public function index (Request $request)
@@ -67,7 +66,7 @@ class SeriesController extends Controller
             //flash message serve para o laravel exibir apenas 1 x uma mensagem. antes estava usando get
             ->flash(
                 'mensagem', 
-                "Série {$serie->id} criada com sucesso {$serie->name}"
+                "Série {$serie->name} e suas temporadas e episódios criados com sucesso "
             );
 
         // return redirect('/series');
