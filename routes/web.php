@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('/series', 'SeriesController@index')->name('list_series');
-Route::get('/series/criar', 'SeriesController@create')->name('form_create_serie');
+Route::get('/series/criar', 'SeriesController@create')->name('form_create_serie')->middleware('auth');
 Route::post('/series/criar', 'SeriesController@store');
 // Route::post('/series/remover/{id}','SeriesController@destroy');
 Route::delete('/series/{id}','SeriesController@destroy');
@@ -32,3 +32,6 @@ Route::post('/temporadas/{season}/episodios/assistir','EpisodesController@assist
 
 //Resource Controllers
 //https://laravel.com/docs/master/controllers 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
