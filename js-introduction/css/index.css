@@ -76,6 +76,10 @@ label{
 	margin-bottom: .2em;
 }
 
+#titulo-form {
+	margin-top: 15px;
+}
+
 .campo{
 	margin: 0;
 	padding-bottom: 1em;
@@ -86,12 +90,12 @@ label{
 }
 
 .campo-medio{
-	display: inline-block;
-	padding-right: .5em;
+	/* display: inline-block; */
 }
 
-.grupo{
-	width: 32%;
+.group{
+	width: 33%;
+	padding-right: .5em;
 	display: inline-block;
 	padding: 10px 0px;
 }
@@ -131,4 +135,8 @@ button[disabled=disabled], button:disabled {
 
 .campo-invalido{
 	border: 1px solid red;
+}
+
+.paciente-invalido {
+	background-color: lightcoral;
 }
